@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template1.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des équipements</title>
+    <link  rel="stylesheet" href="/webjars/bootstrap/5.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">Liste des équipements</div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">User</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="device:${devices}">
+                        <th scope="row" th:text="${device.getId()}"></th>
+                        <td th:text="${device.getName()}"></td>
+                        <td th:text="${device.getUser().getName()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
